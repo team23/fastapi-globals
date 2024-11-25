@@ -1,6 +1,6 @@
 [project]
 name = "fastapi-globals"
-version = "0.10.1"
+version = "0.1.1"
 description = "Use request global variables in FastAPI"
 readme = "README.md"
 requires-python = ">=3.9"
