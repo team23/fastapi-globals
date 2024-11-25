@@ -11,9 +11,19 @@ Just use `pip install fastapi-globals` to install the library.
 Python `3.9`, `3.10`, `3.11`, `3.12` and `3.13`. This is also ensured running all tests on all those versions
 using `tox`.
 
-# Usage
+## Setup
 
-Just import `g` and then access (set/get) attributes of it:
+Add the `GlobalsMiddleware` to your app:
+```python
+app = fastapi.FastAPI(
+    title="Your app API",
+)
+app.add_middleware(GlobalsMiddleware)  # <-- This line is necessary
+```
+
+## Usage
+
+Import `g` and then access (set/get) attributes of it:
 ```python
 from fastapi_globals import g
 
@@ -36,19 +46,7 @@ async def test():
     assert g.foo == "foo"
 ```
 
-# Setup
-
-Add the `GlobalsMiddleware` to your app:
-```python
-app = fastapi.FastAPI(
-    title="Your app API",
-)
-app.add_middleware(GlobalsMiddleware)  # <-- This line is necessary
-```
-
-Then just use it. ;-)
-
-# Default values
+## Default values
 
 You may use `g.set_default("name", some_value)` to set a default value
 for a global variable. This default value will then be used instead of `None`
