@@ -1,11 +1,11 @@
 [project]
 name = "fastapi-globals"
 version = "0.1.0"
-description = "Add your description here"
+description = "Use request global variables in FastAPI"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.9"
 dependencies = [
-    "fastapi>0.100,<1.0",
+    "fastapi>=0.100,<1.0",
 ]
 
 [dependency-groups]
@@ -17,6 +17,7 @@ dev = [
     "anyio>=4.6.2.post1",
     "pyright>=1.1.389",
     "ruff>=0.8.0",
+    "tox>=4.23.2",
 ]
 
 [build-system]

@@ -1,0 +1,24 @@
+name: "LINT: Run ruff & pyright"
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 7 * * 1'
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Install dependencies
+        run: |
+          uv sync --group dev
+      - name: Lint with ruff & pyright
+        run: |
+          uv run ruff check fastapi_globals tests
+          uv run pyright fastapi_globals
