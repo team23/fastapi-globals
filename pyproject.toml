@@ -3,6 +3,11 @@ name = "fastapi-globals"
 version = "0.1.2"
 description = "Use request global variables in FastAPI"
 readme = "README.md"
+authors = [
+    {name = "TEAM23 GmbH", email = "info@team23.de"},
+]
+license = "MIT"
+repository = "https://github.com/team23/fastapi-globals"
 requires-python = ">=3.9"
 dependencies = [
     "fastapi>=0.100,<1.0",
