@@ -23,4 +23,4 @@ jobs:
           uv sync --group dev
       - name: Test with pytest
         run: |
-          uv run tox -e 'py-1.9,py-1.10,py-2.x'
+          uv run tox -e 'py0.100,py-latest'
