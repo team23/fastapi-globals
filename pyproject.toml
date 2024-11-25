@@ -18,8 +18,14 @@ dev = [
     "pyright>=1.1.389",
     "ruff>=0.8.0",
     "tox>=4.23.2",
+    "tomlkit>=0.13.2",
 ]
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.hatch.build]
+exclude = [
+    "pkg-version.py",
+]

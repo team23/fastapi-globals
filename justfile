@@ -38,9 +38,9 @@ lint: ruff pyright
 
 publish: (uv "publish" "--build")
 
-release version: (uv "version" version)
+release version: (uv "run" "pkg-version.py" version)
     git add pyproject.toml
-    git commit -m "release: 🔖 v$(poetry version --short)" --no-verify
-    git tag "v$(poetry version --short)"
+    git commit -m "release: 🔖 v$(uv run --quiet pkg-version.py)" --no-verify
+    git tag "v$(uv run --quiet pkg-version.py)"
     git push
     git push --tags
