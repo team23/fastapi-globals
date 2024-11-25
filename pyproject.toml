@@ -26,6 +26,6 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build]
-exclude = [
-    "pkg-version.py",
+include = [
+    "fastapi_globals",
 ]
