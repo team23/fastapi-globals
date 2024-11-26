@@ -6,12 +6,14 @@ readme = "README.md"
 authors = [
     {name = "TEAM23 GmbH", email = "info@team23.de"},
 ]
-license = "MIT"
-repository = "https://github.com/team23/fastapi-globals"
+license = {file = "LICENSE"}
 requires-python = ">=3.9"
 dependencies = [
     "fastapi>=0.100,<1.0",
 ]
+
+[project.urls]
+Repository = "https://github.com/team23/fastapi-globals"
 
 [dependency-groups]
 dev = [
