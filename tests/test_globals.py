@@ -3,7 +3,7 @@ from typing import Any
 import fastapi
 import pytest
 from fastapi import Depends
-from httpx import AsyncClient
+from httpx import ASGITransport, AsyncClient
 
 from fastapi_globals.globals import Globals, GlobalsMiddleware
 
@@ -52,7 +52,10 @@ async def app_test_endpoint_with_depends():
 
 @pytest.fixture
 def test_client():
-    return AsyncClient(app=app, base_url='http://test')
+    return AsyncClient(
+        base_url='http://test',
+        transport=ASGITransport(app=app),
+    )
 
 
 @pytest.mark.unit
