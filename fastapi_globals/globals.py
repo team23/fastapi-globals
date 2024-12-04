@@ -59,7 +59,7 @@ from starlette.types import ASGIApp
 
 
 class Globals:
-    __slots__ = ("_vars", "_defaults")
+    __slots__ = ("_defaults", "_vars")
 
     _vars: dict[str, ContextVar]
     _defaults: dict[str, Any]
