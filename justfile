@@ -19,9 +19,9 @@ _install-pre-commit:
     #!powershell.exe
     Write-Host "Please ensure pre-commit hooks are installed using 'pre-commit install --install-hooks'"
 
-install: (uv "sync") && _install-pre-commit
+install: (uv "sync" "--group" "dev") && _install-pre-commit
 
-update: (uv "sync")
+update: (uv "sync" "--group" "dev")
 
 uv *args:
     uv {{args}}
@@ -36,11 +36,9 @@ pyright *args: (uv "run" "pyright" "fastapi_globals" args)
 
 lint: ruff pyright
 
-publish: (uv "publish" "--build")
-
-release version: (uv "run" "pkg-version.py" version)
+release version: (uv "version" version)
     git add pyproject.toml
-    git commit -m "release: 🔖 v$(uv run --quiet pkg-version.py)" --no-verify
-    git tag "v$(uv run --quiet pkg-version.py)"
+    git commit -m "release: 🔖 v$(uv version --short)" --no-verify
+    git tag "v$(uv version --short)"
     git push
     git push --tags
