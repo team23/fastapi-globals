@@ -5,7 +5,7 @@ description = "Use request global variables in FastAPI"
 readme = "README.md"
 authors = [{ name = "TEAM23 GmbH", email = "info@team23.de" }]
 license = "BSD-3-Clause"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = [
     "fastapi>=0.100,<1.0",
 ]
